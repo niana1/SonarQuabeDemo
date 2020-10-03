@@ -32,7 +32,8 @@ pipeline {
 		stage('Jacoco Coverage Report') {
 	
 	        steps{
-	
+	        	
+	        	sh 'mvn verify'
 	            jacoco()
 	
 			}
