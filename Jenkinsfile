@@ -54,14 +54,14 @@ pipeline {
 
 		}
 	    
-      stage("Quality Gate"){
-          timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate(webhookSecretId: '5623afa01d36ee21531aade59a92bcf60e4c212d')
-              if (qg.status != 'OK') {
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-              }
-          }
-      }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+          
+                    waitForQualityGate webhookSecretId: '5623afa01d36ee21531aade59a92bcf60e4c212d'  abortPipeline: true
+                }
+            }
+        }
 
         
         stage('Maven Package'){
