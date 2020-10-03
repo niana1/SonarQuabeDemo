@@ -22,9 +22,14 @@ public class MathTest {
 	@Test
 	public void testAdd() {
 		int result = mathDemo.add(5, 3);
-		assertEquals(result, 8);
+		assertEquals(8, result);
+		
 	}
 
-
+	@Test
+	public void testSubtract() {
+		int result = mathDemo.subtract(10, 4);
+		assertEquals(6,result);
+	}
 
 }
