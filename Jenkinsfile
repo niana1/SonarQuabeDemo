@@ -4,7 +4,6 @@ pipeline {
     
     	
 		stage('Maven Compile'){
-	
 			steps{
 	
 				echo 'Project compile stage'
@@ -40,19 +39,19 @@ pipeline {
 	
 		}
 	    
-	    	stage('SonarQube'){
+	    stage('SonarQube'){
 
-         steps{
-		 withSonarQubeEnv('SonarQube2') {
+	         steps{
+			 withSonarQubeEnv('SonarQube2') {
+	
+	            sh '''mvn sonar:sonar \
+					 -Dsonar.host.url=http://35.175.103.228:9000 \
+	 				-Dsonar.login=5623afa01d36ee21531aade59a92bcf60e4c212d'''
+	
+          			}	
+	   		 }
 
-            sh '''mvn sonar:sonar \
-		 -Dsonar.host.url=http://35.175.103.228:9000 \
- 		-Dsonar.login=5623afa01d36ee21531aade59a92bcf60e4c212d'''
-
-          }
-	 }
-
-	}
+		}
 
 
         
