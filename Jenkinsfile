@@ -9,7 +9,7 @@ pipeline {
 	
 				echo 'Project compile stage'
 	
-				bat label: 'Compilation running', script: '''mvn compile'''
+				sh 'mvn compile'
 	
 		       	}
 	
@@ -21,7 +21,7 @@ pipeline {
 	
 				echo 'Project Testing stage'
 	
-				bat label: 'Test running', script: '''mvn test'''
+				sh 'mvn test'
 	
 		       
 	
@@ -48,7 +48,7 @@ pipeline {
 	
 				echo 'Project packaging stage'
 	
-				bat label: 'Project packaging', script: '''mvn package'''
+				sh 'mvn package'
 	
 			}
 
