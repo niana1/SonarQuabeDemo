@@ -58,7 +58,7 @@ pipeline {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
           
-                    waitForQualityGate abortPipeline: true
+                    waitForQualityGate(webhookSecretId: '5623afa01d36ee21531aade59a92bcf60e4c212d')  abortPipeline: true
                 }
             }
         }
